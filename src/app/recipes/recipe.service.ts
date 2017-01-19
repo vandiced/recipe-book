@@ -29,8 +29,18 @@ export class RecipeService {
 
     constructor() { }
 
-    getRecipes() {
+    getRecipes(): Recipe[] {
         return this.recipes;
+    }
+
+    getRecipe(recipeIndex: number): Recipe {
+        return this.recipes[recipeIndex];
+    }
+
+    deleteRecipe(recipe: Recipe) {
+        // what this does is take the recipes array and remove a part of it,
+        // namely the recipe we want to delete
+        this.recipes.splice(this.recipes.indexOf(recipe), )
     }
 
 }
