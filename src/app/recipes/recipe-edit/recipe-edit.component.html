@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <button class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
-                    <a class="btn btn-danger">Cancel</a>
+                    <a class="btn btn-danger" (click)="onCancel()">Cancel</a>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="img">
-                        <img [src]="imageUrl.value" alt="">
+                        <img [src]="imageUrl.value" alt="" style="max-width: 400px;">
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                                         formControlName="amount">
                                 </div>
                                 <div class="col-sm-2">
-                                    <button class="btn btn-danger">X</button>
+                                    <button class="btn btn-danger" (click)="onRemoveItem(i)">X</button>
                                 </div>
                             </div> 
 
@@ -102,9 +102,14 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="form-group row">
-            <div class="col-md-5"><input type="text" class="form-control"></div>
-            <div class="col-md-5"><input type="text" class="form-control"></div>
-            <div class="col-md-2"><button type="button" class="btn btn-primary">+</button></div>
+            <div class="col-md-5"><input type="text" class="form-control" #itemName></div>
+            <div class="col-md-5"><input type="text" class="form-control" #itemAmount></div>
+            <div class="col-md-2">
+                <button 
+                    type="button" 
+                    class="btn btn-primary" 
+                    (click)="onAddItem(itemName.value, itemAmount.value)">+</button>
+            </div>
         </div>
     </div>
 </div>
